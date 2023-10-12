@@ -31,7 +31,7 @@ describe('ProcessData', () => {
    })
 
 
-   test.skip('checkList', async () => {
+   test('checkList', async () => {
        
     const res = await processData.checkList();
 
@@ -39,7 +39,7 @@ describe('ProcessData', () => {
 
    })
 
-   test('updateItem', async () => {
+   test.skip('updateItem', async () => {
 
     const reviewJob: reviewJob = {
         id: 55,

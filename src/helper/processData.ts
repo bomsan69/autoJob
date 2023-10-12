@@ -5,21 +5,26 @@ import moment from 'moment';
 
 const start_dt=moment().subtract(30, 'days').format('YYYY-MM-DD');
 const end_dt=moment().format('YYYY-MM-DD');
-
-const headers={
+let headers:any={
 
     "content-type": "application/json",
-    "Authorization": process.env.API_KEY
+    "Authorization": ""
+   
 }
 
 
 class ProcessData implements IprocessData {
 
     async checkList(): Promise<resData> {
-        
+
+     
         let resData: resData = {
             status: "ok"
         }
+
+
+        headers.Authorization=process.env.API_KEY
+    
         console.log('basicUrl',process.env.BASIC_URL);
 
         const url=`${process.env.BASIC_URL}/listREviewJob.do`;
@@ -29,8 +34,6 @@ class ProcessData implements IprocessData {
 
     
         resData.payload=data.result;
-
-
 
 
         return resData;
@@ -44,8 +47,8 @@ class ProcessData implements IprocessData {
         let resData: resData = {
             status: "ok"
         }
-        console.log('basicUrl',process.env.BASIC_URL);
-
+        
+        headers.Authorization=process.env.API_KEY
 
         const url=`${process.env.BASIC_URL}/updateReviewJob.do`;
        
