@@ -38,7 +38,7 @@ async function main(){
                     customerId: element.customerId,
                     customerName:element.customerName,
                     email:element.email,
-                    content:element.content,
+                    content:'',
                     expected_dt:element.expected_dt,
                     act_gb:'del',
                     url:element.url,
