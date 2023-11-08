@@ -3,7 +3,7 @@ import {IprocessData, resData, reviewJob} from '../types';
 import axios from 'axios';
 import moment from 'moment';
 
-const start_dt=moment().subtract(30, 'days').format('YYYY-MM-DD');
+const start_dt=moment().subtract(180, 'days').format('YYYY-MM-DD');
 const end_dt=moment().format('YYYY-MM-DD');
 let headers:any={
 
@@ -26,6 +26,8 @@ class ProcessData implements IprocessData {
         headers.Authorization=process.env.API_KEY
     
         console.log('basicUrl',process.env.BASIC_URL);
+
+
 
         const url=`${process.env.BASIC_URL}/listREviewJob.do`;
         const param={act_gb:'complete',start_dt,end_dt}
